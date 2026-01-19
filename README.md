@@ -41,76 +41,6 @@ Designed with **maintainability, security, and scalability** in mind.
 - **Postman** (API testing)
 
 
-## API Endpoints
-
-> **All endpoints were tested using Postman**
-
-### i). **Auth Routes (`/api/auth`)**
-
-| Method | Endpoint | Description |
-|------|---------|------------|
-| POST | `/api/auth/register` | Register a new user |
-| POST | `/api/auth/login` | Login user and receive JWT |
-| GET | `/api/auth/me` | Get logged-in user profile |
-| PUT | `/api/auth/me` | Update own profile |
-| PUT | `/api/auth/me/password` | Update own password |
-
-
-### ii). **User Routes (`/api/users`) — With authorization**
-
-| Method | Endpoint | Description |
-|------|---------|------------|
-| GET | `/api/users` | Get all users |
-| GET | `/api/users/:id` | Get user by ID |
-| POST | `/api/users` | Create user |
-| PUT | `/api/users/:id` | Update user |
-| DELETE | `/api/users/:id` | Delete user |
-
-
-### iii). **Task Routes (`/api/tasks`)**
-
-| Method | Endpoint | Access | Description |
-|------|---------|-------|------------|
-| GET | `/api/tasks` | User/Admin | User gets own tasks, Admin gets all |
-| GET | `/api/tasks/:id` | User/Admin | Get single task |
-| POST | `/api/tasks` | Admin | Create task |
-| PUT | `/api/tasks/:id` | User/Admin | User updates own task, Admin updates any |
-| DELETE | `/api/tasks/:id` | Admin | Delete task |
-
-
-## Authentication
-
-Protected routes require a JWT token.
-
-```makefile
-Authorization: Bearer <JWT_TOKEN>
-```
-
-## Postman Testing
-
-All endpoints were tested using **Postman**, including:
-
-- Auth flows (register/login/me)
-- Role-based access checks
-- Token validation
-- Authorization errors
-- Admin vs user permissions
-
-### Example Postman Testing Screenshots
-
-### i). Login & JWT Token
-![Login Success](docs/postman/login-success.png)
-
-### ii). Admin Creating a Task
-![Admin Create Task](docs/postman/admin-create-task.png)
-
-### iii). User Viewing Own Tasks
-![User Own Tasks](docs/postman/user-own-tasks.png)
-
-### iv). Forbidden Access: "Normal" user trying to create a task
-![Forbidden Access](docs/postman/forbidden-access.png)
-
-
 ## Run Locally
 
 ### 1. Clone the repo
@@ -148,8 +78,86 @@ The API will be running at:
 http://localhost:5000
 ```
 
+
 ## Deployment
-This API is deployed using **Render**.
+The Task Manager API is deployed and running on **[Render](https://task-manager-api-rghv.onrender.com)**.  
+
+
+- All API endpoints can be accessed using this base URL:  
+<https://task-manager-api-rghv.onrender.com>
+
+
+## Authentication
+Protected routes require a JWT token.
+
+```makefile
+Authorization: Bearer <JWT_TOKEN>
+```
+
+
+## API Endpoints
+
+> **All endpoints were tested using Postman**
+
+### i). **Auth Routes (`/api/auth`)**
+
+| Method | Endpoint | Description |
+|------|---------|------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Login user and receive JWT |
+| GET | `/api/auth/me` | Get logged-in user profile |
+| PUT | `/api/auth/me` | Update own profile |
+| PUT | `/api/auth/me/password` | Update own password |
+
+
+### ii). **User Routes (`/api/users`) — With authorization**
+
+| Method | Endpoint | Description |
+|------|---------|------------|
+| GET | `/api/users` | Get all users |
+| GET | `/api/users/:id` | Get user by ID |
+| POST | `/api/users` | Create user |
+| PUT | `/api/users/:id` | Update user |
+| DELETE | `/api/users/:id` | Delete user |
+
+
+### iii). **Task Routes (`/api/tasks`)**
+
+| Method | Endpoint | Access | Description |
+|------|---------|-------|------------|
+| GET | `/api/tasks` | User/Admin | User gets own tasks, Admin gets all |
+| GET | `/api/tasks/:id` | User/Admin | Get single task |
+| POST | `/api/tasks` | Admin | Create task |
+| PUT | `/api/tasks/:id` | User/Admin | User updates own task, Admin updates any |
+| DELETE | `/api/tasks/:id` | Admin | Delete task |
+
+
+
+## Postman Testing
+
+All endpoints were tested using **Postman**, including:
+
+- Auth flows (register/login/me)
+- Role-based access checks
+- Token validation
+- Authorization errors
+- Admin vs user permissions
+
+### Example Postman Testing Screenshots
+
+### i). Login & JWT Token
+![Login Success](docs/postman/login-success.png)
+
+### ii). Admin Creating a Task
+![Admin Create Task](docs/postman/admin-create-task.png)
+
+### iii). User Viewing Own Tasks
+![User Own Tasks](docs/postman/user-own-tasks.png)
+
+### iv). Forbidden Access: "Normal" user trying to create a task
+![Forbidden Access](docs/postman/forbidden-access.png)
+
+
 
 ## License
 **MIT**
