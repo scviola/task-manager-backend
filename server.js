@@ -30,7 +30,7 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/auth", authRoutes);
 
 // health check
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
 
